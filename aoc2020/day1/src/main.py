@@ -1,18 +1,15 @@
 #!/usr/bin/env python
 
-def main(input_file, nums):
-    print(f'Reading {input_file} for {nums} numbers that sum to 2020')
-
-    with open(input_file) as f:
-        lines = f.readlines()
-
-    # Iterate through the list, summing current value to each value
-    # left in list in search of 2020.
+def main(inp, nums):
+    '''
+    Iterate through the input, summing current value to each value
+    left in list in search of 2020.
+    '''
     # TODO implement recursion for any number of nums
-    for idx, first in enumerate(lines):
-        for second in lines[idx+1:]:
-            for third in lines[idx+2:]:
-                values = [int(first), int(second), int(third)]
+    for idx, first in enumerate(inp):
+        for second in inp[idx+1:]:
+            for third in inp[idx+2:]:
+                values = [first, second, third]
                 if sum(values) == 2020:
                     print(f'FOUND: {values}')
                     print(f'ANSWER = {multiply_list(values)}')
@@ -31,6 +28,9 @@ if __name__ == '__main__':
 
     # TODO: need better way to locate input file. define root dir?
     input_file = 'input.txt'
+    with open(input_file) as f:
+        lines = f.readlines()
+        inp = [int(line) for line in lines]
 
     try:
         nums = int(sys.argv[1])
@@ -39,4 +39,4 @@ if __name__ == '__main__':
     except ValueError:
         print('Please give the number of values to sum to 2020 as a positive integer')
     else:
-        main(input_file, nums)
+        main(inp, nums)
