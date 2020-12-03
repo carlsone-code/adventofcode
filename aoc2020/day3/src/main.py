@@ -7,21 +7,18 @@ def main(inp, right_steps, down_steps):
     row = 0
     line_length = len(inp[0])
 
-    for _ in range(len(inp) - 1):
-        col += right_steps
-        row += down_steps
+    while row < len(inp):
 
-        # Sim line extension
+        # Sim treeline extension
         if col >= line_length:
             col -= line_length
-
-        # Return if rows are exceeded when down_steps > 1
-        if row > len(inp):
-            return trees
 
         # Check spot for tree or snow
         if inp[row][col] == '#':
             trees += 1
+
+        col += right_steps
+        row += down_steps
 
     return trees
 
