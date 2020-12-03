@@ -1,5 +1,5 @@
 #/usr/bin/env python
-from adventofcode.aoc2020.input_template import get_input
+from adventofcode.aoc2020.helper_funcs import get_input
 
 
 def main(inp):

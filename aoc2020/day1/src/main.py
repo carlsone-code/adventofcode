@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from adventofcode.aoc2020.input_template import get_input
+from adventofcode.aoc2020.helper_funcs import get_input, multiply_list
 
 def main(inp, nums):
     '''
@@ -17,12 +17,6 @@ def main(inp, nums):
                     return
     print(f'No {nums} numbers were found that sum to 2020')
 
-def multiply_list(values):
-    '''Return product of all elements in a list.'''
-    prod = 1
-    for val in values:
-        prod *= val
-    return prod
 
 if __name__ == '__main__':
     import sys
