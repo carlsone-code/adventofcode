@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from adventofcode.aoc2020.input_template import get_input
 
 def main(inp, nums):
     '''
@@ -26,11 +27,7 @@ def multiply_list(values):
 if __name__ == '__main__':
     import sys
 
-    # TODO: need better way to locate input file. define root dir?
-    input_file = 'input.txt'
-    with open(input_file) as f:
-        lines = f.readlines()
-        inp = [int(line) for line in lines]
+    inp = [int(line) for line in get_input()]
 
     try:
         nums = int(sys.argv[1])
