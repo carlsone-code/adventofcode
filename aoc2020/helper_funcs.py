@@ -1,9 +1,10 @@
 '''Helper functions'''
+import inspect
 
 
 def get_input():
-    # TODO: need better way to locate input file. define root dir?
-    input_file = 'input.txt'
+    path = inspect.stack()[1].filename.split('src')[0]
+    input_file = f'{path}/input.txt'
     with open(input_file) as f:
         return f.readlines()
 
